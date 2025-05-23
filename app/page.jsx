@@ -65,65 +65,31 @@ Deploying your Next.js app to Netlify is straightforward. Connect your GitHub re
 We hope this guide helps you get started with Next.js and Netlify. Happy coding!
 `;
 
+const Kontrak = `
+## Kontrak 
+Yang bertanda tangan di bawah ini :
+1. Nama : John Doe
+2. Alamat : Jl. Raya No. 123, Jakarta	
+3. No. Telepon : 08123456789
+###selanjutnya disebut sebagai "Pihak Pertama".
+
+4. Nama : Jane Smith
+5. Alamat : Jl. Kebon Jeruk No. 456, Jakarta
+6. No. Telepon : 08234567890 
+###selanjutnya disebut sebagai "Pihak Kedua".
+
+Pihak kedua bermaksud untuk membangun aplikasi berbasis web (selanjutnya disebut web app) maintenance dan inventory alat kesehatan pelanggannya.
+
+Bersama-sama kedua pihak bersepakat untuk mengadakan perjanjian kerjasama dengan ketentuan-ketentuan dalam pasa-pasal sebagai berikut: 
+`;
+
 const ctx = getNetlifyContext();
 
 export default function Page() {
 	return (
 		<div className="flex flex-col gap-12 sm:gap-16">
-			<section></section>
-			<section>
-				<ContextAlert className="mb-6" />
-				<h1 className="mb-4">Getting Started with Next.js and Netlify</h1>
-				<p className="mb-6 text-lg">A comprehensive guide to help you set up and deploy your Next.js project.</p>
-				<Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="btn btn-lg sm:min-w-64">
-					Read the Docs
-				</Link>
-			</section>
-			{!!ctx && (
-				<section className="flex flex-col gap-4">
-					<Markdown content={contextExplainer} />
-					<RuntimeContextCard />
-				</section>
-			)}
-			<section className="flex flex-col gap-4">
-				<Markdown content={preDynamicContentExplainer} />
-				<RandomQuote />
-				<Markdown content={postDynamicContentExplainer} />
-			</section>
-			<section className="flex flex-col gap-4">
-				<Markdown content={articleContent} />
-			</section>
-			
-			<section className="flex flex-col gap-4">
-				<Alert variant="success">
-					This is a success alert—check it out!
-				</Alert>
-			</section>
+		
 		</div>
 	);
-}
 
-function RuntimeContextCard() {
-	const title = `Netlify Context: running in ${ctx} mode.`;
-	if (ctx === 'dev') {
-		return (
-			<Card title={title}>
-				<p>Next.js will rebuild any page you navigate to, including static pages.</p>
-			</Card>
-		);
-	} else {
-		return (
-			<Card title={title}>
-				<p>This page was statically-generated at build time.</p>
-			</Card>
-		);
-	}
-}
-
-function NewSectionCard() {
-	return (
-		<Card title="New Section Card">
-			<p>This is a new card added to the page. You can customize this content as needed.</p>
-		</Card>
-	);
 }
